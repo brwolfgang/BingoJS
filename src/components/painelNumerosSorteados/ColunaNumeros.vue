@@ -1,23 +1,51 @@
 <template>
-  <div class="card">
-    <div class="card-header">
-      <h4 class="card-title">Números sorteados</h4>
+  <div>
+    <div class="row">
+      <div class="col-12">
+        <h1>{{ letra }}</h1>
+      </div>
     </div>
-    <div class="card-body">
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+    <div class="row" v-for="linha in listaConjuntosNumeros">
+      <div class="col" v-for="item in linha">
+        <h3>{{ item }}</h3>
+      </div>
     </div>
+
   </div>
 </template>
 
 <script>
   export default {
-    name: 'PainelNumerosSorteados',
+    name: 'ColunaNumeros',
+    props: {
+      letra: String,
+      numeros: Array
+    },
+    computed: {
+      listaConjuntosNumeros () {
+        let listaConjuntosNumeros = []
+
+        let qtdeColunas = Math.floor(this.numerosUnicos.length / this.tamanhoColuna)
+
+        for (let linha = 0; linha < this.tamanhoColuna; linha++) {
+          let linhaAtual = []
+          for (let coluna = 0; coluna <= qtdeColunas; coluna++) {
+            linhaAtual.push(this.numerosUnicos[(coluna * this.tamanhoColuna) + linha])
+          }
+          listaConjuntosNumeros.push(linhaAtual)
+        }
+
+        return listaConjuntosNumeros
+      },
+      numerosUnicos () {
+        return this.numeros.filter(function (valor, indice, array) {
+          return array.indexOf(valor) === indice
+        })
+      }
+    },
     data () {
       return {
-
+        tamanhoColuna: 13
       }
     }
   }

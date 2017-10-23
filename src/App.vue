@@ -1,29 +1,35 @@
 <template>
   <div id="app">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-4">Hello World! I was wondering if after all theses years you'd like to meet.</div>
-        <div class="col-sm-4">Hello World! I was wondering if after all theses years you'd like to meet.</div>
-        <div class="col-sm-4">Hello World! I was wondering if after all theses years you'd like to meet.</div>
-      </div>
-    </div>
-    <router-view/>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Bingo</h4>
+        </div>
+        <div class="card-body">
+          <div class="row justify-content-center mh-100">
+            <div class="col-md-3 col-sm-12 align-items-center" >
+              <configuracoes-sidebar>
+
+              </configuracoes-sidebar>
+            </div>
+            <div class="col-md-9 col-sm-12" >
+              <painel-numeros-sorteados></painel-numeros-sorteados>
+            </div>
+          </div>
+        </div>
+      </div></div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import ConfiguracoesSidebar from './components/sidebar/ConfiguracoesSidebar.vue'
+  import PainelNumerosSorteados from './components/painelNumerosSorteados/PainelNumerosSorteados.vue'
+
+  export default {
+    components: {ConfiguracoesSidebar, PainelNumerosSorteados},
+    name: 'app'
+  }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

@@ -4,21 +4,38 @@
       <h4 class="card-title">Números sorteados</h4>
     </div>
     <div class="card-body">
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <div class="row">
+        <coluna-numeros
+          class="col"
+          :letra="letra"
+          :numeros="coluna"
+        ></coluna-numeros>
+        <coluna-numeros
+          class="col"
+          :letra="letra"
+          :numeros="coluna"
+        ></coluna-numeros>
+        <coluna-numeros
+          class="col"
+          :letra="letra"
+          :numeros="coluna"
+        ></coluna-numeros>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import ColunaNumeros from './ColunaNumeros.vue'
+
   export default {
     name: 'PainelNumerosSorteados',
     data () {
       return {
-
+        letra: 'A',
+        coluna: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
       }
-    }
+    },
+    components: {ColunaNumeros}
   }
 </script>

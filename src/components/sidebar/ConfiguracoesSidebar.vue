@@ -1,24 +1,36 @@
 <template>
   <div class="card">
-    <div class="card-header" >
-      <h4 class="card-title ">Bingo!</h4>
+    <div class="card-header">
+      <h4 class="card-title">Sorteio</h4>
     </div>
     <div class="card-body">
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <painel-numeros-sorteados></painel-numeros-sorteados>
+      <div class="row mb-1">
+        <input type="button" class="btn btn-primary btn-block" value="Sortear Número">
+      </div>
+      <div class="row mb-1">
+        <input type="button" class="btn btn-primary btn-block" value="Misturar Pedras">
+      </div>
+      <div class="row mb-1">
+        <input type="button" class="btn btn-primary btn-block" value="Iniciar Novo Sorteio">
+      </div>
+      <div class="row mb-1">
+        <input type="button" class="btn btn-primary btn-block" value="Opções">
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import PainelNumerosSorteados from './PainelDisplayNumero.vue'
+
   export default {
     name: 'ConfiguracoesSidebar',
     data () {
       return {
 
       }
-    }
+    },
+    components: {PainelNumerosSorteados}
   }
 </script>
