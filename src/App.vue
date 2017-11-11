@@ -6,10 +6,7 @@
           <configuracoes-sidebar></configuracoes-sidebar>
         </div>
         <div class="col-md-9 col-sm-12" >
-          <painel-numeros-sorteados
-            qtdeNumeros="75"
-            letras="BINGO"
-          ></painel-numeros-sorteados>
+          <painel-numeros-sorteados/>
         </div>
       </div>
     </div>

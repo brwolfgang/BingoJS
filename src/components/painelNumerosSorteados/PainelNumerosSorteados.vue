@@ -25,11 +25,13 @@
       return {
       }
     },
-    props: {
-      letras: String,
-      qtdeNumeros: Number
-    },
     computed: {
+      letras () {
+        return this.$store.state.letras
+      },
+      qtdeNumeros () {
+        return this.$store.state.qtdeNumeros
+      },
       arrayLetras () {
         return this.letras.toUpperCase().split('')
       },
@@ -39,7 +41,7 @@
       arrayNumeros () {
         let arrayNumeros = []
 
-        for (let i = 0; i < this.arrayLetras.length; i++) {
+        for (let i = 0; i < this.$store.getters.arrayLetras.length; i++) {
           let arrayParcial = []
 
           for (let j = 0; j < this.qtdeNumerosPorLetra; j++) {
