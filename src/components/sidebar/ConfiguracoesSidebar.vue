@@ -6,16 +6,16 @@
     <div class="card-body">
       <painel-numeros-sorteados></painel-numeros-sorteados>
       <div class="row mb-1">
-        <input type="button" class="btn btn-primary btn-block" value="Sortear Número">
+        <input type="button" class="btn btn-primary btn-block btn-sm" value="Sortear Número">
       </div>
       <div class="row mb-1">
-        <input type="button" class="btn btn-primary btn-block" value="Misturar Pedras">
+        <input type="button" class="btn btn-primary btn-block btn-sm" value="Misturar Pedras">
       </div>
       <div class="row mb-1">
-        <input type="button" class="btn btn-primary btn-block" value="Iniciar Novo Sorteio">
+        <input type="button" class="btn btn-primary btn-block btn-sm" value="Iniciar Novo Sorteio">
       </div>
       <div class="row mb-1">
-        <input type="button" class="btn btn-primary btn-block" value="Opções">
+        <input type="button" class="btn btn-primary btn-block btn-sm" value="Opções">
       </div>
     </div>
   </div>

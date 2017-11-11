@@ -1,16 +1,15 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-12">
+      <div class="col-12" style="text-align: center">
         <h1>{{ letra }}</h1>
       </div>
     </div>
     <div class="row" v-for="linha in listaConjuntosNumeros">
-      <div class="col" v-for="item in linha">
+      <div class="col border rounded-circle" v-for="item in linha" style="text-align: center">
         <h3>{{ item }}</h3>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -25,12 +24,11 @@
       listaConjuntosNumeros () {
         let listaConjuntosNumeros = []
 
-        let qtdeColunas = Math.floor(this.numerosUnicos.length / this.tamanhoColuna)
-
         for (let linha = 0; linha < this.tamanhoColuna; linha++) {
           let linhaAtual = []
-          for (let coluna = 0; coluna <= qtdeColunas; coluna++) {
-            linhaAtual.push(this.numerosUnicos[(coluna * this.tamanhoColuna) + linha])
+          for (let coluna = 0; coluna < this.qtdeColunas; coluna++) {
+            let valorAtual = this.numerosUnicos[(coluna * this.tamanhoColuna) + linha]
+            linhaAtual.push(valorAtual)
           }
           listaConjuntosNumeros.push(linhaAtual)
         }
@@ -41,11 +39,14 @@
         return this.numeros.filter(function (valor, indice, array) {
           return array.indexOf(valor) === indice
         })
+      },
+      qtdeColunas () {
+        return this.numerosUnicos.length / this.tamanhoColuna
       }
     },
     data () {
       return {
-        tamanhoColuna: 13
+        tamanhoColuna: 15
       }
     }
   }

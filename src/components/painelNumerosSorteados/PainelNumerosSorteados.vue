@@ -5,20 +5,10 @@
     </div>
     <div class="card-body">
       <div class="row">
-        <coluna-numeros
+        <coluna-numeros v-for="letra, indice in letras" :key="letra"
           class="col"
           :letra="letra"
-          :numeros="coluna"
-        ></coluna-numeros>
-        <coluna-numeros
-          class="col"
-          :letra="letra"
-          :numeros="coluna"
-        ></coluna-numeros>
-        <coluna-numeros
-          class="col"
-          :letra="letra"
-          :numeros="coluna"
+          :numeros="arrayNumeros[indice]"
         ></coluna-numeros>
       </div>
     </div>
@@ -30,12 +20,37 @@
 
   export default {
     name: 'PainelNumerosSorteados',
+    components: {ColunaNumeros},
     data () {
       return {
-        letra: 'A',
-        coluna: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
       }
     },
-    components: {ColunaNumeros}
+    props: {
+      letras: String,
+      qtdeNumeros: Number
+    },
+    computed: {
+      arrayLetras () {
+        return this.letras.toUpperCase().split('')
+      },
+      qtdeNumerosPorLetra () {
+        return this.qtdeNumeros / this.arrayLetras.length
+      },
+      arrayNumeros () {
+        let arrayNumeros = []
+
+        for (let i = 0; i < this.arrayLetras.length; i++) {
+          let arrayParcial = []
+
+          for (let j = 0; j < this.qtdeNumerosPorLetra; j++) {
+            arrayParcial.push((i * this.qtdeNumerosPorLetra) + j + 1)
+          }
+
+          arrayNumeros.push(arrayParcial)
+        }
+
+        return arrayNumeros
+      }
+    }
   }
 </script>
